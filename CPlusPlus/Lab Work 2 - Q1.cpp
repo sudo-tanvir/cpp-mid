@@ -1,37 +1,29 @@
 /*Write a program that will add two private members of a class  using a friend function named add().
 The class has two objects. A constructor with a single parameter to set the value.*/
-#include <iostream>
 
-class MyClass {
+#include<iostream>
+using namespace std;
+
+class cse{
 private:
-    int num1;
-    int num2;
+    float mid, sfinal;
 
 public:
-    MyClass(int value) {
-        num1 = value;
-        num2 = value;
+    cse(float a){
+        mid = a;
+        sfinal = 20;
     }
-
-    friend int add(const MyClass& obj1, const MyClass& obj2);
+    friend void add(cse ob1,cse ob2)
+    {
+        float result;
+        result = ob1.mid + ob2.sfinal;
+        cout<<"The Result is: "<<result<<endl;
+    }
 };
+int main()
+{
+    cse s1(10);
+    cse s2(60);
 
-int add(const MyClass& obj1, const MyClass& obj2) {
-    return obj1.num1 + obj2.num2;
-}
-
-int main() {
-    int value;
-
-    std::cout << "Enter a value: ";
-    std::cin >> value;
-
-    MyClass obj1(value);
-    MyClass obj2(value);
-
-    int sum = add(obj1, obj2);
-
-    std::cout << "Sum of private members: " << sum << std::endl;
-
-    return 0;
+    add(s1, s2);
 }
