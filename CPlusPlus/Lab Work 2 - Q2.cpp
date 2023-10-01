@@ -1,37 +1,32 @@
 /*A class name spring which has data member month and year and member function named show_date().
 The class has a parameterized constructor. It also has a destructor.
-Implement the class by creating two objects. */
-#include <iostream>
+Implement the class by creating two objects.*/
 
-class Spring {
-private:
-    int month;
-    int year;
+#include<iostream>
+using namespace std;
 
+class spring{
 public:
-    Spring(int m, int y) {
-        month = m;
-        year = y;
+    double month, year;
+    spring(double a, double b){
+        month = a;
+        year = b;
     }
-
-    void show_date() {
-        std::cout << "Month: " << month << ", Year: " << year << std::endl;
+    ~spring()
+    {
+        //Blank
     }
-
-    ~Spring() {
-        std::cout << "Destructor called for Month: " << month << ", Year: " << year << std::endl;
-    }
+    void show_date();
 };
+int main()
+{
+    spring show(10,2003);
 
-int main() {
-    Spring object1(3, 2023);  // Creating the first object
-    Spring object2(5, 2024);  // Creating the second object
+    show.show_date();
+}
+void spring::show_date()
+{
+    cout<<"Month is: "<<month<<endl;
+    cout<<"Year is: "<<year<<endl;
 
-    std::cout << "Object 1:" << std::endl;
-    object1.show_date();
-
-    std::cout << "Object 2:" << std::endl;
-    object2.show_date();
-
-    return 0;
 }
